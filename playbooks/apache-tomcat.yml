@@ -1,0 +1,10 @@
+---
+- hosts: Dev
+  remote_user: ec2-user
+  become: yes
+  become_method: sudo
+  connection: ssh
+
+  roles:
+    - tomcat
+    - httpd

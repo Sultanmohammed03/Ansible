@@ -1,0 +1,53 @@
+---
+- name: Installing Java
+  yum: 
+    name: java-1.8.0-openjdk.x86_64
+    state: latest   
+- name: Updating yum package
+  yum:
+    name: '*'
+    state: latest
+- name: Adding tomcat group
+  group:
+    name: tomcat
+- name: Adding tomcat user
+  user:
+    name: tomcat
+    group: tomcat
+    home: /usr/share/tomcat
+    createhome: no
+- name: creating /opt/tomcat directory
+  file:
+    path: /opt/tomcat
+    state: directory
+    mode: 0755
+- name: Downloading & Unarchiveing Apahace Tomcat
+  unarchive:
+    src: http://www-us.apache.org/dist/tomcat/tomcat-9/v9.0.19/bin/apache-tomcat-9.0.19.tar.gz
+    dest: /opt/tomcat
+    remote_src: yes
+    extra_opts: [--strip-components=1]
+- name: Changeing ownership
+  file:
+    path: /opt/tomcat
+    owner: tomcat
+    group: tomcat
+    mode: "u+rwx,g+rx,o=rx"
+    recurse: yes
+    state: directory
+- name: Copying the file to /etc/systemd
+  copy: src=tomcat.service dest=/etc/systemd/system/tomcat.service
+- name: Configure Tomcat Server
+  template: src=server.xml dest=/opt/tomcat/conf
+  notify:
+    - restart tomcat
+- name: Configure Tomcat Users
+  template: src=tomcat-users.xml dest=/opt/tomcat/conf
+  notify:
+    - restart tomcat
+- name: Starting tomcat service
+  service:
+    name: tomcat
+    state: restarted
+    enabled: yes
+ 

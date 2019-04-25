@@ -1,0 +1,7 @@
+---
+- name: Installing Apache Server
+  yum:
+    name: httpd
+    state: present
+  notify:
+    - restart_apache2
