@@ -1,0 +1,10 @@
+---
+- name: Provision multiple micro ec2 instances
+  hosts: localhost
+  connection: local
+  gather_facts: False
+
+  vars_files:
+    - ./roles/ec2/vars/config.yml
+  roles:
+    - ec2 

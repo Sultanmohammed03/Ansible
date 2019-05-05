@@ -1,0 +1,16 @@
+---
+
+#aws access key and secret access key are stored in vault and encrypted by password
+
+aws_access_key: AKIA2PQER3QHOWTRHA2Z
+aws_secret_access_key: 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
+region: us-east-1
+key_name: Shared
+instance_type: t2.micro
+image: ami-0de53d8956e8dcf80
+wait: yes
+group_id: sg-0185aa9c06038450f
+instance_count: 1
+vpc_subnet_id: subnet-088b4c11b9c7dd471
+assign_public_ip: yes
+Instance_Name: Dev-Server

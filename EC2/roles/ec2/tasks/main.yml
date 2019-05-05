@@ -1,0 +1,30 @@
+---
+- name: Provisioning Instnaces
+  ec2:
+    aws_access_key: "{{ aws_access_key }}"
+    aws_secret_key: "{{ aws_secret_access_key }}"
+    region: "{{ region }}"
+    key_name: "{{ key_name }}"
+    instance_type: "{{ instance_type }}"
+    image: "{{ image }}"
+    wait: "{{ wait }}"
+    group_id: "{{ group_id }}"
+    count: "{{ instance_count }}"
+    vpc_subnet_id: "{{ vpc_subnet_id }}"
+    assign_public_ip: "{{ assign_public_ip }}"
+    instance_tags:
+      Name: "{{ Instance_Name }}"
+  register: web
+
+- name: Setting the instances facts for DevServers
+  set_fact:
+    instance_private_ip: "{{ web.instances[0].private_ip }}"
+    instance_id: "{{ web.instances[0].id }}"
+- name: DevServer | Adding the newly created EC2 instance(s) to the DevServer Inventory file
+  local_action:
+    module: lineinfile
+    dest: "./hosts"
+    regexp: "{{ instance_private_ip }}"
+    insertafter: "[devserver]"
+    line: "{{ instance_private_ip }}"
+
