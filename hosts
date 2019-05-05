@@ -1,7 +1,0 @@
-[local]
-localhost
-
-[webserver]
-
-[devserver]
-10.0.1.78
