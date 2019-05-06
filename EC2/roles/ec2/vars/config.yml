@@ -2,12 +2,21 @@
 
 #aws access key and secret access key are stored in vault and encrypted by password
 
+<<<<<<< HEAD
+aws_access_key: AKIA2PQER3QHD5BAS7NF
+aws_secret_access_key: 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
+region: us-east-1
+key_name: Shared
+instance_type: t2.micro
+image: ami-0d43457c056ffdd62
+=======
 aws_access_key: AKIA2PQER3QHOWTRHA2Z
 aws_secret_access_key: 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
 region: us-east-1
 key_name: Shared
 instance_type: t2.micro
 image: ami-0de53d8956e8dcf80
+>>>>>>> 87a5facb63daf40a12ad899cc1284904f4476b70
 wait: yes
 group_id: sg-0185aa9c06038450f
 instance_count: 1

@@ -1,4 +1,10 @@
 ---
+<<<<<<< HEAD
+- name: Ansible create host file if it doesn't exist example
+  copy: src=hosts dest=/home/ec2-user/ansible/playbooks
+
+=======
+>>>>>>> 87a5facb63daf40a12ad899cc1284904f4476b70
 - name: Provisioning Instnaces
   ec2:
     aws_access_key: "{{ aws_access_key }}"
@@ -15,7 +21,11 @@
     instance_tags:
       Name: "{{ Instance_Name }}"
   register: web
+<<<<<<< HEAD
+  
+=======
 
+>>>>>>> 87a5facb63daf40a12ad899cc1284904f4476b70
 - name: Setting the instances facts for DevServers
   set_fact:
     instance_private_ip: "{{ web.instances[0].private_ip }}"
@@ -23,8 +33,22 @@
 - name: DevServer | Adding the newly created EC2 instance(s) to the DevServer Inventory file
   local_action:
     module: lineinfile
+<<<<<<< HEAD
+    dest: "/home/ec2-user/ansible/playbooks/hosts"
+=======
     dest: "./hosts"
+>>>>>>> 87a5facb63daf40a12ad899cc1284904f4476b70
     regexp: "{{ instance_private_ip }}"
     insertafter: "[devserver]"
     line: "{{ instance_private_ip }}"
 
+<<<<<<< HEAD
+- name: Wait for SSH to come up
+  wait_for:
+    host: "{{ web.instances[0].private_ip }}"
+    port: 22
+    delay: 30
+    timeout: 300
+  with_items: "{{ web.instances }}"
+=======
+>>>>>>> 87a5facb63daf40a12ad899cc1284904f4476b70

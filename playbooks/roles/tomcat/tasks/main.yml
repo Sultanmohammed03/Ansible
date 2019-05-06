@@ -50,4 +50,7 @@
     name: tomcat
     state: restarted
     enabled: yes
- 
+- name: Deploying Webapp to Dev Server
+  copy: src=webapp.war dest=/opt/tomcat/webapps
+  notify:
+    - restart tomcat 
