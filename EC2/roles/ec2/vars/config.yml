@@ -1,25 +1,18 @@
 ---
 
 #aws access key and secret access key are stored in vault and encrypted by password
-
-<<<<<<< HEAD
-aws_access_key: AKIA2PQER3QHD5BAS7NF
-aws_secret_access_key: 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
+#Instnace 1
+aws_access_key: AKIAUHJ5DSUZX67ABA44
+aws_secret_access_key: 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
 region: us-east-1
-key_name: Shared
+key_name: Jump_server
 instance_type: t2.micro
-image: ami-0d43457c056ffdd62
-=======
-aws_access_key: AKIA2PQER3QHOWTRHA2Z
-aws_secret_access_key: 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
-region: us-east-1
-key_name: Shared
+image: ami-06805ec259e247be8
 instance_type: t2.micro
-image: ami-0de53d8956e8dcf80
->>>>>>> 87a5facb63daf40a12ad899cc1284904f4476b70
 wait: yes
-group_id: sg-0185aa9c06038450f
+group_id: sg-0c055044e28779152
 instance_count: 1
-vpc_subnet_id: subnet-088b4c11b9c7dd471
-assign_public_ip: yes
+vpc_subnet_id1: subnet-0518966b354b81a0d
+vpc_subnet_id2: subnet-091230f500fb96ffe
+assign_public_ip: no
 Instance_Name: Dev-Server

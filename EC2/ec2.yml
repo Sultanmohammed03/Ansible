@@ -1,5 +1,5 @@
 ---
-- name: Provision multiple micro ec2 instances
+- name: Provisioning Development Servers
   hosts: localhost
   connection: local
   gather_facts: False

@@ -50,7 +50,11 @@
     name: tomcat
     state: restarted
     enabled: yes
+- name: Copying the setenv.sh to bin folder
+  template: src=setenv.sh dest=/opt/tomcat/bin
+
 - name: Deploying Webapp to Dev Server
-  copy: src=webapp.war dest=/opt/tomcat/webapps
+  copy: src=devops-demo.war dest=/opt/tomcat/webapps/devops-demo.war
   notify:
-    - restart tomcat 
+    - restart tomcat
+ 
