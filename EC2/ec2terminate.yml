@@ -5,8 +5,8 @@
   gather_facts: no
   
   vars:
-    aws_access_key: AKIAUHJ5DSUZX67ABA44
-    aws_secret_access_key: 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
+    aws_access_key: 
+    aws_secret_access_key: 
     aws_region: "us-east-1"
     ec2_tags:
       Name: "Dev-Server"
