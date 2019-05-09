@@ -2,8 +2,8 @@
 
 #aws access key and secret access key are stored in vault and encrypted by password
 #Instnace 1
-aws_access_key: AKIAUHJ5DSUZX67ABA44
-aws_secret_access_key: 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
+aws_access_key: ""
+aws_secret_access_key: ""
 region: us-east-1
 key_name: Jump_server
 instance_type: t2.micro
